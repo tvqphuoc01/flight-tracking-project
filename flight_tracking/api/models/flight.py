@@ -21,12 +21,8 @@ class Flight(models.Model):
     )
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
-    country_departure = models.ForeignKey(
-        Country, on_delete=models.CASCADE, null=True, blank=True
-    )
-    country_arrival = models.ForeignKey(
-        Country, on_delete=models.CASCADE, null=True, blank=True
-    )
+    country_departure = models.CharField(max_length=3, null=True, blank=True)
+    country_arrival = models.CharField(max_length=3, null=True, blank=True)
     country = models.ForeignKey(
         Country, on_delete=models.CASCADE, null=True, blank=True
     )
