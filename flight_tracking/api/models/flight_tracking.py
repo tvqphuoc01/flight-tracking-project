@@ -10,7 +10,7 @@ class FlightTracking(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     flight = models.ForeignKey(Flight, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    tracking_status = models.IntegerField(default=0)
+    tracking_status = models.CharField(max_length=20, null=True, blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
     next_flight = models.ForeignKey(
