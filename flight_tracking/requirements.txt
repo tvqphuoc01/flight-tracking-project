@@ -13,3 +13,4 @@ django-cors-headers==3.12.0
 pandas==1.4.2
 dask==2022.5.2
 boto3==1.24.36
+airportsdata==20220921

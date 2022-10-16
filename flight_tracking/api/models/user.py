@@ -3,8 +3,6 @@ import uuid
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 
-from api.models.country import Country
-
 
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -15,9 +13,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_verified = models.BooleanField(default=False)
     create_date = models.DateTimeField(auto_now_add=True)
     profile_picture_url = models.CharField(max_length=500, null=True, blank=True)
-    country = models.ForeignKey(
-        Country, on_delete=models.CASCADE, null=True, blank=True
-    )
+    country_ip = models.CharField(max_length=3, null=True, blank=True)
 
     def get_full_name(self):
         return self.name
